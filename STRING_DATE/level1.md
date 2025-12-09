@@ -18,17 +18,17 @@ ORDER BY history_id DESC;
 
 -- MySQL
 SELECT
-    HISTORY_ID,
-    CAR_ID,
-    DATE_FORMAT(START_DATE, '%Y-%m-%d') AS START_DATE,
-    DATE_FORMAT(END_DATE, '%Y-%m-%d') AS END_DATE,
+    history_id,
+    car_id,
+    DATE_FORMAT(start_date, '%Y-%m-%d') AS start_date,
+    DATE_FORMAT(end_date, '%Y-%m-%d') AS end_date,
     CASE 
-        WHEN DATEDIFF(END_DATE, START_DATE) >= 29 THEN '장기 대여'
+        WHEN DATEDIFF(end_date, start_date) >= 29 THEN '장기 대여'
         ELSE '단기 대여'
-    END AS RENT_TYPE
-FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY
-WHERE START_DATE LIKE '2022-09%'
-ORDER BY HISTORY_ID DESC;
+    END AS rent_type
+FROM car_rental_company_rental_history
+WHERE start_date LIKE '2022-09%'
+ORDER BY history_id DESC;
 ```
 
 ## [특정 옵션이 포함된 자동차 리스트 구하기](https://school.programmers.co.kr/learn/courses/30/lessons/157343?language=oracle)
@@ -36,7 +36,7 @@ ORDER BY HISTORY_ID DESC;
 ```sql
 SELECT 
     * 
-FROM CAR_RENTAL_COMPANY_CAR
-WHERE OPTIONS LIKE '%네비게이션%'
-ORDER BY CAR_ID DESC;
+FROM car_rental_company_car
+WHERE options LIKE '%네비게이션%'
+ORDER BY car_id DESC;
 ```

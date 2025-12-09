@@ -2,36 +2,36 @@
 
 ```sql
 SELECT 
-    ROUND(AVG(DAILY_FEE), 0) AS AVERAGE_FEE
-FROM CAR_RENTAL_COMPANY_CAR
-WHERE CAR_TYPE = 'SUV';
+    ROUND(AVG(daily_fee), 0) AS average_fee
+FROM car_rental_company_car
+WHERE car_type = 'SUV';
 ```
 
 ## [조건에 부합하는 중고거래 댓글 조회하기](https://school.programmers.co.kr/learn/courses/30/lessons/164673?language=oracle)
 
 ```sql
 SELECT
-    T1.TITLE,
-    T1.BOARD_ID,
-    T2.REPLY_ID,
-    T2.WRITER_ID,
-    T2.CONTENTS,
-    TO_CHAR(T2.CREATED_DATE, 'YYYY-MM-DD') AS CREATED_DATE
-FROM USED_GOODS_BOARD T1
-INNER JOIN USED_GOODS_REPLY T2 
-    ON T1.BOARD_ID = T2.BOARD_ID
-WHERE T1.CREATED_DATE 
+    T1.title,
+    T1.board_id,
+    T2.reply_id,
+    T2.writer_id,
+    T2.contents,
+    TO_CHAR(T2.created_date, 'YYYY-MM-DD') AS created_date
+FROM used_goods_board T1
+INNER JOIN used_goods_reply T2 
+    ON T1.board_id = T2.board_id
+WHERE T1.created_date 
     BETWEEN TO_DATE('2022-10-01', 'YYYY-MM-DD') 
     AND TO_DATE('2022-10-31', 'YYYY-MM-DD')
-ORDER BY T2.CREATED_DATE ASC, T1.TITLE ASC;
+ORDER BY T2.created_date ASC, T1.title ASC;
 ```
 
 ## [인기있는 아이스크림](https://school.programmers.co.kr/learn/courses/30/lessons/133024)
 
 ```sql
 SELECT
-    FLAVOR
-FROM FIRST_HALF
-ORDER BY TOTAL_ORDER DESC, SHIPMENT_ID;
+    flavor
+FROM first_half
+ORDER BY total_order DESC, shipment_id;
 ```
 

@@ -2,17 +2,18 @@
 
 ```sql
 SELECT 
-    CAR_ID, 
+    car_id, 
     CASE
         WHEN MAX(
             CASE 
-                WHEN START_DATE <= '2022-10-16'
-                 AND END_DATE >= '2022-10-16'
+                WHEN start_date <= '2022-10-16'
+                 AND end_date >= '2022-10-16'
                 THEN 1 ELSE 0
             END
         ) = 1 THEN '대여중'
         ELSE '대여 가능'
-    END AS AVAILABILITY
-FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY
-GROUP BY CAR_ID
-ORDER BY CAR_ID DESC;
+    END AS availability
+FROM car_rental_company_rental_history
+GROUP BY car_id
+ORDER BY car_id DESC;
+```

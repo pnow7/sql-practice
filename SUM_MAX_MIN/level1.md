@@ -27,3 +27,15 @@ SELECT
     CONCAT(MAX(length), 'cm') AS max_length
 FROM fish_info;
 ```
+
+## [조건에 맞는 도서 리스트 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/144853)
+
+```sql
+SELECT
+    book_id,
+    TO_CHAR(published_date, 'YYYY-MM-DD') AS published_date
+FROM book
+WHERE category = '인문' 
+AND TO_CHAR(published_date, 'YYYY') = '2021'
+ORDER BY published_date;
+```

@@ -22,7 +22,7 @@ FROM
                 WHEN score >= 60 AND score < 70 THEN '60 ~ 70'
                 ELSE '0 ~ 60'
             END AS scores
-        FROM STUDENT_SCORES
+        FROM student_scores
     ) T
 GROUP BY T.scores
 ORDER BY T.scores DESC;

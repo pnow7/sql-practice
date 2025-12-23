@@ -40,3 +40,53 @@ FROM car_rental_company_car
 WHERE options LIKE '%네비게이션%'
 ORDER BY car_id DESC;
 ```
+
+## [조건에 부합하는 중고거래 상태 조회하기](https://school.programmers.co.kr/learn/courses/30/lessons/164672?language=oracle)
+
+```sql
+-- Oracle
+SELECT 
+    board_id,
+    writer_id,
+    title,
+    price,
+    CASE 
+        WHEN status = 'SALE' THEN '판매중'
+        WHEN status = 'RESERVED' THEN '예약중'
+        WHEN status = 'DONE' THEN '거래완료'
+    END AS STATUS
+FROM used_goods_board
+WHERE TO_CHAR(created_date, 'YYYY-MM-DD') = '2022-10-05'
+ORDER BY board_id DESC;
+```
+
+## [루시와 엘라 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/59046?language=oracle)
+
+```sql
+-- Oracle
+SELECT
+    animal_id,
+    name,
+    sex_upon_intake
+FROM animal_ins
+WHERE name = 'Lucy' OR 
+      name = 'Ella' OR 
+      name = 'Pickle' OR 
+      name = 'Rogan' OR 
+      name = 'Sabrina' OR 
+      name = 'Mitty'
+ORDER BY animal_id
+```
+
+## [이름에 el이 들어가는 동물 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/59047?language=oracle)
+
+```sql
+-- Oracle
+SELECT
+    animal_id,
+    name
+FROM animal_ins
+WHERE UPPER(name) LIKE '%EL%' AND 
+      animal_type = 'Dog'
+ORDER BY name;
+```

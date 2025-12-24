@@ -41,3 +41,28 @@ FROM (
 )
 WHERE rn <= 2;
 ```
+
+## [카테고리 별 상품 개수 구하기](https://school.programmers.co.kr/learn/courses/30/lessons/131529?language=oracle)
+
+```sql
+-- Oracle
+SELECT
+    SUBSTR(product_code, 1, 2) AS category,
+    COUNT(*) AS products
+FROM product
+GROUP BY SUBSTR(product_code, 1, 2)
+ORDER BY category
+```
+
+## [자동차 평균 대여 기간 구하기](https://school.programmers.co.kr/learn/courses/30/lessons/157342?language=oracle)
+
+```sql
+-- Oracle
+SELECT
+    car_id,
+    TO_CHAR(ROUND(AVG(end_date - start_date + 1), 1), 'FM9999.0') AS average_duration
+FROM car_rental_company_rental_history
+GROUP BY car_id
+HAVING AVG(end_date - start_date + 1) >= 7
+ORDER BY TO_NUMBER(average_duration) DESC, car_id DESC
+```

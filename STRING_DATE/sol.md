@@ -106,3 +106,42 @@ SELECT
 FROM animal_ins
 ORDER BY animal_id;
 ```
+
+## [DATETIME에서 DATE로 형 변환](https://school.programmers.co.kr/learn/courses/30/lessons/59414?language=oracle)
+
+```sql
+-- Oracle
+SELECT
+    animal_id,
+    name,
+    TO_CHAR(datetime, 'YYYY-MM-DD') AS 날짜
+FROM animal_ins
+ORDER BY animal_id;
+```
+
+## [연도 별 평균 미세먼지 농도 조회하기](https://school.programmers.co.kr/learn/courses/30/lessons/284530)
+
+```sql
+-- 연도 별 평균 미세먼지 오염도와 (PM10)
+-- 평균 초미세먼지 오염도를 조회 (PM2.5)
+
+-- Oracle
+SELECT
+    TO_CHAR(ym, 'YYYY') AS year,
+    ROUND(AVG(pm_val1), 2) AS PM10,
+    ROUND(AVG(pm_val2), 2) AS "PM2.5"
+FROM air_pollution
+WHERE location2 = '수원'
+GROUP BY TO_CHAR(ym, 'YYYY')
+ORDER BY year;
+
+-- MySQL
+SELECT
+    YEAR(YM)AS YEAR,
+    ROUND(AVG(PM_VAL1), 2) AS PM10,
+    ROUND(AVG(PM_VAL2), 2) AS 'PM2.5'
+FROM AIR_POLLUTION
+WHERE LOCATION2 = '수원'
+GROUP BY YEAR
+ORDER BY YEAR;
+```

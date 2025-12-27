@@ -3,10 +3,10 @@
 ```sql
 SELECT 
     * 
-FROM food_product
-WHERE price = (
-            SELECT MAX(price) 
-            FROM food_product
+FROM FOOD_PRODUCT
+WHERE PRICE = (
+        SELECT MAX(PRICE) 
+        FROM FOOD_PRODUCT
       );
 ```
 
@@ -14,57 +14,57 @@ WHERE price = (
 
 ```sql
 SELECT
-    MIN(datetime) AS datetime
-FROM animal_ins
+    MIN(DATETIME) AS DATETIME
+FROM ANIMAL_INS
 ```
 
 ## [동물 수 구하기](https://school.programmers.co.kr/learn/courses/30/lessons/59406)
 
 ```sql
 SELECT
-    COUNT(animal_id) AS count
-FROM animal_ins
+    COUNT(ANIMAL_ID) AS COUNT
+FROM ANIMAL_INS
 ```
 
 ## [중복 제거하기](https://school.programmers.co.kr/learn/courses/30/lessons/59408)
 
 ```sql
 SELECT
-    COUNT(DISTINCT name) AS count
-FROM animal_ins
+    COUNT(DISTINCT NAME) AS COUNT
+FROM ANIMAL_INS
 ```
 
 ## [조건에 맞는 아이템들의 가격의 총합 구하기](https://school.programmers.co.kr/learn/courses/30/lessons/273709)
 
 ```sql
 SELECT
-    SUM(price) AS total_price
-FROM item_info
-WHERE rarity = 'LEGEND';
+    SUM(PRICE) AS TOTAL_PRICE
+FROM ITEM_INFO
+WHERE RARITY = 'LEGEND';
 ```
 
 ## [연도별 대장균 크기의 편차 구하기](https://school.programmers.co.kr/learn/courses/30/lessons/299310)
 
 ```sql
--- Oracle
+-- ORACLE
 SELECT
-    TO_CHAR(differentiation_date, 'YYYY') AS year,
-    MAX(size_of_colony) OVER (
-        PARTITION BY TO_CHAR(differentiation_date, 'YYYY')
-    ) - size_of_colony AS year_dev,
-    id
-FROM ecoli_data
-ORDER BY year ASC, year_dev ASC;
+    TO_CHAR(DIFFERENTIATION_DATE, 'YYYY') AS YEAR,
+    MAX(SIZE_OF_COLONY) OVER (
+        PARTITION BY TO_CHAR(DIFFERENTIATION_DATE, 'YYYY')
+    ) - SIZE_OF_COLONY AS YEAR_DEV,
+    ID
+FROM ECOLI_DATA
+ORDER BY YEAR ASC, YEAR_DEV ASC;
 
 
--- MySQL
+-- MYSQL
 SELECT
-    YEAR(differentiation_date) AS year,
-    MAX(size_of_colony) OVER (
-        PARTITION BY YEAR(differentiation_date)
-    ) - size_of_colony AS year_dev,
-    id
-FROM ecoli_data
+    YEAR(DIFFERENTIATION_DATE) AS YEAR,
+    MAX(SIZE_OF_COLONY) OVER (
+        PARTITION BY YEAR(DIFFERENTIATION_DATE)
+    ) - SIZE_OF_COLONY AS YEAR_DEV,
+    ID
+FROM ECOLI_DATA
 ORDER BY 
-    year ASC, year_dev ASC;
+    YEAR ASC, YEAR_DEV ASC;
 ```

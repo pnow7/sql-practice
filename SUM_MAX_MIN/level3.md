@@ -2,16 +2,16 @@
 
 ```sql
 SELECT
-    T1.id,
-    T2.fish_name,
-    T1.length
-FROM fish_info T1
-JOIN fish_name_info T2 
-    ON T1.fish_type = T2.fish_type
-WHERE T1.length = (
-    SELECT MAX(T3.length)
-    FROM fish_info T3
-    WHERE T3.fish_type = T1.fish_type
+    T1.ID,
+    T2.FISH_NAME,
+    T1.LENGTH
+FROM FISH_INFO T1
+JOIN FISH_NAME_INFO T2 
+    ON T1.FISH_TYPE = T2.FISH_TYPE
+WHERE T1.LENGTH = (
+    SELECT MAX(T3.LENGTH)
+    FROM FISH_INFO T3
+    WHERE T3.FISH_TYPE = T1.FISH_TYPE
 )
-ORDER BY T1.id;
+ORDER BY T1.ID;
 ```

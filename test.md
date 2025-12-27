@@ -10,20 +10,20 @@
 
 ```sql
 SELECT 
-    T.scores AS 점수대,
+    T.SCORES AS 점수대,
     COUNT(*) AS 명수
 FROM 
     (
         SELECT
             CASE
-                WHEN score >= 90 AND score <= 100 THEN '90 ~ 100'
-                WHEN score >= 80 AND score < 90 THEN '80 ~ 90'
-                WHEN score >= 70 AND score < 80 THEN '70 ~ 80'
-                WHEN score >= 60 AND score < 70 THEN '60 ~ 70'
+                WHEN SCORE >= 90 AND SCORE <= 100 THEN '90 ~ 100'
+                WHEN SCORE >= 80 AND SCORE < 90 THEN '80 ~ 90'
+                WHEN SCORE >= 70 AND SCORE < 80 THEN '70 ~ 80'
+                WHEN SCORE >= 60 AND SCORE < 70 THEN '60 ~ 70'
                 ELSE '0 ~ 60'
-            END AS scores
-        FROM student_scores
+            END AS SCORES
+        FROM STUDENT_SCORES
     ) T
-GROUP BY T.scores
-ORDER BY T.scores DESC;
+GROUP BY T.SCORES
+ORDER BY T.SCORES DESC;
 ```

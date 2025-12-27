@@ -2,11 +2,11 @@
 
 ```sql
 SELECT 
-    T1.animal_id,
-    T1.name
-FROM animal_ins T1
-JOIN animal_outs T2
-    ON T1.animal_id = T2.animal_id
-WHERE T1.datetime > T2.datetime
-ORDER BY T1.datetime;
+    T1.ANIMAL_ID,
+    T1.NAME
+FROM ANIMAL_INS T1
+JOIN ANIMAL_OUTS T2
+    ON T1.ANIMAL_ID = T2.ANIMAL_ID
+WHERE T1.DATETIME > T2.DATETIME
+ORDER BY T1.DATETIME;
 ```

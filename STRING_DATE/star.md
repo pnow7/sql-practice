@@ -66,3 +66,26 @@ GROUP BY car_id
 HAVING AVG(end_date - start_date + 1) >= 7
 ORDER BY TO_NUMBER(average_duration) DESC, car_id DESC
 ```
+
+## [분기별 분화된 대장균의 개체 수 구하기](https://school.programmers.co.kr/learn/courses/30/lessons/299308)
+
+```sql
+-- Oracle (TO_CHAR(date, 'Q') -> 1 ~ 4 반환)
+SELECT
+    TO_CHAR(diffrentiation_date, 'Q') || 'Q' AS quarter,
+    COUNT(*) AS ecoli_count
+FROM ecoli_info
+GROUP BY TO_CHAR(diffrentiation_date, 'Q')
+ORDER BY TO_CHAR(diffrentiation_date, 'Q');
+
+-- MySQL (QUARTER() 함수 사용)
+SELECT
+    CONCAT(q, 'Q') AS QUARTER,
+    COUNT(*) AS ECOLI_COUNT
+FROM (
+    SELECT QUARTER(DIFFERENTIATION_DATE) AS q
+    FROM ECOLI_DATA
+) t
+GROUP BY q
+ORDER BY q;
+```

@@ -145,3 +145,20 @@ WHERE LOCATION2 = '수원'
 GROUP BY YEAR
 ORDER BY YEAR;
 ```
+
+## [한 해에 잡은 물고기 수 구하기](https://school.programmers.co.kr/learn/courses/30/lessons/298516?language=mysql)
+
+```sql
+-- Oracle
+SELECT
+    COUNT(*) AS fish_count
+FROM fish_info
+WHERE time >= DATE '2021-01-01' AND
+      time <= DATE '2022-01-01';
+
+-- MySQL
+SELECT
+    COUNT(*) AS fish_count
+FROM fish_info
+WHERE time >= '2021-01-01' AND
+      time <= '2022-01-01';

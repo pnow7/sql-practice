@@ -65,3 +65,28 @@ ON T2.ANIMAL_ID = T1.ANIMAL_ID
 WHERE T1.ANIMAL_ID IS NULL
 ORDER BY T2.ANIMAL_ID;
 ```
+
+## [오랜 기간 보호한 동물(1)](https://school.programmers.co.kr/learn/courses/30/lessons/59044?language=oracle)
+
+<details>
+<summary></summary>
+
+- 생각하면 개쉬움
+
+</details>
+
+```sql
+--ORACLE
+SELECT
+    *
+FROM (
+    SELECT
+        T1.NAME AS NAME,
+        T1.DATETIME AS DATETIME
+    FROM ANIMAL_INS T1
+    LEFT JOIN ANIMAL_OUTS T2
+    WHERE T2.DATETIME IS NULL
+    ORDER BY T1.DATETIME
+)
+WHERE ROWNUM <= 3;
+```

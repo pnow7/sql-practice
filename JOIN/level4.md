@@ -34,6 +34,7 @@ WHERE ROWNUM <= 3
 <details>
 
 ⭐⭐⭐
+- 정보를 합치냐 vs 정보를 거를거냐
 
 <summary></summary>
 </details>

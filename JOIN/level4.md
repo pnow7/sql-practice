@@ -13,7 +13,7 @@ SELECT
     T3.FLAVOR
 FROM (
     SELECT
-    T1.FLAVOR,
+        T1.FLAVOR,
         T1.TOTAL_SUM + T2.TOTAL_ORDER AS TOTAL
     FROM (
         SELECT

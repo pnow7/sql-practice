@@ -1,12 +1,5 @@
 ## [주문량이 많은 아이스크림 조회하기](https://school.programmers.co.kr/learn/courses/30/lessons/133027?language=oracle)
 
-<details>
-
-- HOLY FUCK
-
-<summary></summary>
-</details>
-
 ```sql
 -- ORACLE
 SELECT

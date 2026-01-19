@@ -134,3 +134,41 @@ JOIN (
 ON T1.PRODUCT_ID = T2.PRODUCT_ID
 ORDER BY TOTAL_SALES DESC, PRODUCT_ID
 ```
+
+## [그룹별 조건에 맞는 식당 목록 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/131124?language=oracle)
+
+<details>
+
+⭐⭐⭐⭐
+- 리뷰를 가장 많이 작성한 회원의 리뷰 조회
+- RANK() OVER(ORDER BY COUNT(*) DESC) AS RNK
+
+<summary></summary>
+</details>
+
+```sql
+--ORACLE
+SELECT
+    T1.MEMBER_NAME,
+    TT.REVIEW_TEXT,
+    TT.REVIEW_DATE
+FROM MEMBER_PROFILE T1
+JOIN (
+    SELECT
+        T2.MEMBER_ID,
+        T2.REVIEW_TEXT,
+        TO_CHAR(T2.REVIEW_DATE, 'YYYY-MM-DD') AS REVIEW_DATE
+    FROM REST_REVIEW T2
+    JOIN (
+        SELECT 
+            MEMBER_ID, 
+            RANK() OVER(ORDER BY COUNT(*) DESC) AS RNK
+        FROM REST_REVIEW
+        GROUP BY MEMBER_ID
+    ) T3
+    ON T2.MEMBER_ID = T3.MEMBER_ID
+    WHERE T3.RNK = 1
+) TT
+ON T1.MEMBER_ID = TT.MEMBER_ID
+ORDER BY TT.REVIEW_DATE, TT.REVIEW_TEXT
+```

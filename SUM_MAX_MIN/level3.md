@@ -1,6 +1,7 @@
 ## [물고기 종류 별 대어 찾기](https://school.programmers.co.kr/learn/courses/30/lessons/293261)
 
 ```sql
+-- ORACLE
 SELECT
     T1.ID,
     T2.FISH_NAME,

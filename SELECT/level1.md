@@ -1,6 +1,9 @@
+# SELECT
+
 ## [평균 일일 대여 요금 구하기](https://school.programmers.co.kr/learn/courses/30/lessons/151136?language=oracle)
 
 ```sql
+-- ORACLE
 SELECT 
     ROUND(AVG(DAILY_FEE), 0) AS AVERAGE_FEE
 FROM CAR_RENTAL_COMPANY_CAR
@@ -10,6 +13,7 @@ WHERE CAR_TYPE = 'SUV';
 ## [조건에 부합하는 중고거래 댓글 조회하기](https://school.programmers.co.kr/learn/courses/30/lessons/164673?language=oracle)
 
 ```sql
+-- ORACLE
 SELECT
     T1.TITLE,
     T1.BOARD_ID,
@@ -29,6 +33,7 @@ ORDER BY T2.CREATED_DATE ASC, T1.TITLE ASC;
 ## [인기있는 아이스크림](https://school.programmers.co.kr/learn/courses/30/lessons/133024)
 
 ```sql
+-- ORACLE
 SELECT
     FLAVOR
 FROM FIRST_HALF
@@ -38,6 +43,7 @@ ORDER BY TOTAL_ORDER DESC, SHIPMENT_ID;
 ## [12세 이하인 여자 환자 목록 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/132201)
 
 ```sql
+-- ORACLE
 SELECT
     PT_NAME,
     PT_NO,

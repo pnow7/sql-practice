@@ -1,3 +1,5 @@
+# STRING, DATE
+
 ## [자동차 대여 기록에서 장기/단기 대여 구분하기](https://school.programmers.co.kr/learn/courses/30/lessons/151138)
 
 ```sql
@@ -34,6 +36,7 @@ ORDER BY HISTORY_ID DESC;
 ## [특정 옵션이 포함된 자동차 리스트 구하기](https://school.programmers.co.kr/learn/courses/30/lessons/157343?language=oracle)
 
 ```sql
+-- ORACLE
 SELECT 
     * 
 FROM CAR_RENTAL_COMPANY_CAR
@@ -122,6 +125,7 @@ ORDER BY ANIMAL_ID;
 ## [연도 별 평균 미세먼지 농도 조회하기](https://school.programmers.co.kr/learn/courses/30/lessons/284530)
 
 ```sql
+-- ORACLE
 -- 연도 별 평균 미세먼지 오염도와 (PM10)
 -- 평균 초미세먼지 오염도를 조회 (PM2.5)
 

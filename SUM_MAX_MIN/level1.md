@@ -1,6 +1,9 @@
+# SUM, MAX, MIN
+
 ## [가장 비싼 상품 구하기](https://school.programmers.co.kr/learn/courses/30/lessons/131697)
 
 ```sql
+-- ORACLE
 SELECT 
     MAX(PRICE) AS MAX_PRICE
 FROM PRODUCT
@@ -9,6 +12,7 @@ FROM PRODUCT
 ## [최댓값 구하기]()
 
 ```sql
+-- ORACLE
 SELECT
     MAX(DATETIME) AS DATETIME
 FROM ANIMAL_INS
@@ -22,7 +26,7 @@ SELECT
 FROM FISH_INFO;
 
 
---MYSQL (ORACLE은 CONCAT 인자 두개만 가능)
+-- MYSQL (ORACLE은 CONCAT 인자 두개만 가능)
 SELECT 
     CONCAT(MAX(LENGTH), 'cm') AS MAX_LENGTH
 FROM FISH_INFO;
@@ -31,6 +35,7 @@ FROM FISH_INFO;
 ## [조건에 맞는 도서 리스트 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/144853)
 
 ```sql
+ORACLE
 SELECT
     BOOK_ID,
     TO_CHAR(PUBLISHED_DATE, 'YYYY-MM-DD') AS PUBLISHED_DATE

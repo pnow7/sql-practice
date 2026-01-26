@@ -77,3 +77,24 @@ WHERE START_DATE BETWEEN TO_DATE('20220801', 'YYYYMMDD')
 GROUP BY TO_NUMBER(TO_CHAR(START_DATE, 'MM')), CAR_ID
 ORDER BY MONTH, CAR_ID DESC
 ```
+
+## [카테고리 별 도서 판매량 집계하기](https://school.programmers.co.kr/learn/courses/30/lessons/144855)
+
+<details>
+- ⭐⭐
+<summary></summary>
+</details>
+
+```sql
+-- ORACLE
+SELECT 
+    T1.CATEGORY, 
+    SUM(T2.SALES) AS TOTAL_SALES
+FROM BOOK T1
+JOIN BOOK_SALES T2 
+  ON T1.BOOK_ID = T2.BOOK_ID
+WHERE T2.SALES_DATE >= TO_DATE('2022-01-01', 'YYYY-MM-DD')
+  AND T2.SALES_DATE < TO_DATE('2022-02-01', 'YYYY-MM-DD')
+GROUP BY T1.CATEGORY 
+ORDER BY T1.CATEGORY
+```
